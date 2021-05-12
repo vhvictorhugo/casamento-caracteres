@@ -12,7 +12,7 @@ void leituraArquivo(TipoTexto texto)
     FILE *arquivo = NULL;
     char nomeArquivoEntrada[30], nomeArquivo[30] = "./arquivos/";
     char palavra[30];
-
+    int marcaPosicao = 0;
     printf("Digite o nome do arquivo: ");
     scanf("%s", nomeArquivoEntrada);
     printf("nome do arquivo lido: %s\n",nomeArquivoEntrada);
@@ -25,16 +25,25 @@ void leituraArquivo(TipoTexto texto)
         printf("Erro na abertura do arquivo.\n");
         return;
     }
+    strcmp(texto," ");
 
     while (!feof(arquivo))
     {
-        fscanf(arquivo,"%s", palavra);
-
-        strcat(texto,palavra);
-        strcat(texto," ");
+        fscanf(arquivo,"%s",palavra);
+        //[0][1][2][' '][]
+        for (int i = 0; i < strlen(palavra); i++)
+        {
+            texto[marcaPosicao + i] = palavra[i];
+        }
+        marcaPosicao += strlen(palavra);
+        if(!feof(arquivo))
+        {
+            texto[marcaPosicao] = ' ';
+            marcaPosicao++;
+        }
     }
 
-    printf("%s ",texto);
+    //printf("%s \n",texto);
 
     fclose(arquivo);
 

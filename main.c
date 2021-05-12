@@ -6,13 +6,14 @@
 */
  
  #include "./Headers/auxiliares.h"
-
+//gcc -o exec main.c ./Sources/algoritmos.c ./Sources/auxiliares.c
+//mingw32-make exec
 int main(int argc, char **argv)
 {
     TipoTexto texto;
     leituraArquivo(texto);
 
-    printf("\n%c ",texto[0]);
+    printf("%s ",texto);
 
 
     return 0;
