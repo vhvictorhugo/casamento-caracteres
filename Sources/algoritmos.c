@@ -20,7 +20,7 @@ void ShiftAndExato(TipoTexto T, long n, TipoPadrao P, long m)
              (1 << (m - 1))) &
             Masc[T[i] + 127];
         if ((R & 1) != 0)
-            printf(" Casamento na posicao %3ld\n", i - m + 2);
+            printf("Casamento na posicao %3ld\n", i - m + 2);
     }
 }
 

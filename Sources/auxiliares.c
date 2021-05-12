@@ -15,7 +15,6 @@ void leituraArquivo(TipoTexto texto)
     int marcaPosicao = 0;
     printf("Digite o nome do arquivo: ");
     scanf("%s", nomeArquivoEntrada);
-    printf("nome do arquivo lido: %s\n",nomeArquivoEntrada);
 
     strcat(nomeArquivo, nomeArquivoEntrada);
     arquivo = fopen(nomeArquivo, "r");
@@ -23,27 +22,25 @@ void leituraArquivo(TipoTexto texto)
     if (arquivo == NULL)
     {
         printf("Erro na abertura do arquivo.\n");
-        return;
+        exit(0);
     }
-    strcmp(texto," ");
+    strcmp(texto, " ");
 
     while (!feof(arquivo))
     {
-        fscanf(arquivo,"%s",palavra);
+        fscanf(arquivo, "%s", palavra);
         //[0][1][2][' '][]
         for (int i = 0; i < strlen(palavra); i++)
         {
             texto[marcaPosicao + i] = palavra[i];
         }
         marcaPosicao += strlen(palavra);
-        if(!feof(arquivo))
+        if (!feof(arquivo))
         {
             texto[marcaPosicao] = ' ';
             marcaPosicao++;
         }
     }
-
-    //printf("%s \n",texto);
 
     fclose(arquivo);
 
