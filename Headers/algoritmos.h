@@ -5,23 +5,17 @@
 *   Professor: Daniel Mendes Barbosa
 */
 
-#ifndef ALGORITMOS_H
-#define ALGORITMOS_H
-
-#include <stdlib.h>
 #include <stdio.h>
-#include <time.h>
 #include <string.h>
-#include <windows.h> //remover
+#include <stdlib.h>
+#include <string.h>
 
-#define MAXTAMTEXTO 5000
-#define MAXTAMPADRAO 30
-//#define MAXCHAR 256
 
+#define MAXTAMTEXTO     1000
+#define MAXTAMPADRAO    10
+#define MAXCHAR         256
 typedef char TipoTexto[MAXTAMTEXTO];
 typedef char TipoPadrao[MAXTAMPADRAO];
 
-//void ShiftAndExato(TipoTexto T, long n, TipoPadrao P, long m);
+void ShiftAndExato(TipoTexto T, long n, TipoPadrao P, long m);
 void ForcaBruta(TipoTexto T, long n, TipoPadrao P, long m);
-
-#endif

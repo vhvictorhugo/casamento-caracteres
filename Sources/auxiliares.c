@@ -6,15 +6,16 @@
 */
 
 #include "../Headers/auxiliares.h"
-#include "../Headers/algoritmos.h"
 
-void leituraArquivo(TipoTexto T)
+void leituraArquivo(TipoTexto texto)
 {
     FILE *arquivo = NULL;
     char nomeArquivoEntrada[30], nomeArquivo[30] = "./arquivos/";
+    char palavra[30];
 
     printf("Digite o nome do arquivo: ");
     scanf("%s", nomeArquivoEntrada);
+    printf("nome do arquivo lido: %s\n",nomeArquivoEntrada);
 
     strcat(nomeArquivo, nomeArquivoEntrada);
     arquivo = fopen(nomeArquivo, "r");
@@ -27,13 +28,13 @@ void leituraArquivo(TipoTexto T)
 
     while (!feof(arquivo))
     {
-        fscanf(arquivo, "%s", T);
+        fscanf(arquivo,"%s", palavra);
+
+        strcat(texto,palavra);
+        strcat(texto," ");
     }
 
-    for (int i = 0; i < MAXTAMTEXTO; i++)
-    {
-        printf("%c ", T[i]);
-    }
+    printf("%s ",texto);
 
     fclose(arquivo);
 

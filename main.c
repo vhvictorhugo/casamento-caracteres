@@ -4,27 +4,16 @@
 *   Matéria: Projeto e Análise de Algoritmos
 *   Professor: Daniel Mendes Barbosa
 */
-
-#include "./Headers/auxiliares.h"
+ 
+ #include "./Headers/auxiliares.h"
 
 int main(int argc, char **argv)
 {
-    TipoTexto T;
-    TipoPadrao P;
-    //long n, m, k, i;
+    TipoTexto texto;
+    leituraArquivo(texto);
 
-    leituraArquivo(T);
+    printf("\n%c ",texto[0]);
 
-    system("pause");
 
-    /*scanf("%*[^\n]");
-    getchar();
-    printf(" Forca bruta: ");
-    ForcaBruta(T, n, P, m);
-
-    scanf("%*[^\n]");
-    getchar();
-    printf(" Shift-And-Exato: ");
-    ShiftAndExato(T, n, P, m);*/
     return 0;
 }

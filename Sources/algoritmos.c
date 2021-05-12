@@ -7,7 +7,7 @@
 
 #include "../Headers/algoritmos.h"
 
-/*void ShiftAndExato(TipoTexto T, long n, TipoPadrao P, long m)
+void ShiftAndExato(TipoTexto T, long n, TipoPadrao P, long m)
 {
     long Masc[MAXCHAR], i, R = 0;
     for (i = 0; i < MAXCHAR; i++)
@@ -22,7 +22,7 @@
         if ((R & 1) != 0)
             printf(" Casamento na posicao %3ld\n", i - m + 2);
     }
-}*/
+}
 
 void ForcaBruta(TipoTexto T, long n, TipoPadrao P, long m)
 {

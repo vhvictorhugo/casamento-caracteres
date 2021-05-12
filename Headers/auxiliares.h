@@ -5,11 +5,6 @@
 *   Professor: Daniel Mendes Barbosa
 */
 
-#ifndef AUXILIARES_H
-#define AUXILIARES_H
+ #include "algoritmos.h"
 
-#include "algoritmos.h"
-
-void leituraArquivo(TipoTexto T);
-
-#endif
+ void leituraArquivo(TipoTexto texto);
