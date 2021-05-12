@@ -5,6 +5,8 @@
 *   Professor: Daniel Mendes Barbosa
 */
 
- #include "algoritmos.h"
+#include "algoritmos.h"
 
- void leituraArquivo(TipoTexto texto);
+void leituraArquivo(TipoTexto texto);
+void linha();
+int menu();

@@ -15,26 +15,49 @@ int main(int argc, char **argv)
     TipoTexto texto;
     TipoPadrao padrao;
 
-    time_t begin; //variavel que armazenara o tempo de execucao
+    int escolhaMenu;
 
     leituraArquivo(texto);
-
     printf("Digite o nome do padrao: ");
     scanf("%s", padrao);
 
-    begin = clock();
-    puts("Execucao Shift-And:");
-    ShiftAndExato(texto, strlen(texto), padrao, strlen(padrao));
-    begin = clock() - begin;
-    printf("%lf e o tempo de execucao.\n", ((double)begin) / ((CLOCKS_PER_SEC / 1000)));
+    do
+    {
 
-    puts("");
+        escolhaMenu = menu();
+        switch (escolhaMenu)
+        {
 
-    begin = clock();
-    puts("Execucao Forca Bruta:");
-    ForcaBruta(texto, strlen(texto), padrao, strlen(padrao));
-    begin = clock() - begin;
-    printf("%lf e o tempo de execucao.\n", ((double)begin) / ((CLOCKS_PER_SEC / 1000)));
+        case 1:
+
+            puts("Execucao Forca Bruta:");
+            ForcaBruta(texto, strlen(texto), padrao, strlen(padrao));
+            system("pause");
+            break;
+
+        case 2:
+            puts("Execucao Shift-And Exato:");
+            ShiftAndExato(texto, strlen(texto), padrao, strlen(padrao));
+            system("pause");
+            break;
+
+        case 3:
+            puts("ainda n foi feito");
+            system("pause");
+            break;
+
+        case 0:
+            puts("Obrigado por utilizar!");
+            system("pause");
+            break;
+
+        default:
+            puts("Valor invalido! Poderia inserir outro?!");
+            system("pause");
+            break;
+        }
+
+    } while (escolhaMenu != 0);
 
     return 0;
 }

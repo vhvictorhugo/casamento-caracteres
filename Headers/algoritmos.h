@@ -11,9 +11,11 @@
 #include <string.h>
 #include <time.h>
 
-#define MAXTAMTEXTO 9999
+#define MAXTAMTEXTO 999999
 #define MAXTAMPADRAO 30
 #define MAXCHAR 256
+//#define MODO_DEBUG 1 // 0 = desativado, 1 = ativado
+
 typedef char TipoTexto[MAXTAMTEXTO];
 typedef char TipoPadrao[MAXTAMPADRAO];
 

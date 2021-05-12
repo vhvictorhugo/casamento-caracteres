@@ -46,3 +46,24 @@ void leituraArquivo(TipoTexto texto)
 
     return;
 }
+
+void linha()
+{
+    for (int i = 0; i < 40; i++)
+        printf("=");
+    puts("");
+}
+
+int menu()
+{
+    int escolha;
+
+    puts("Escolha uma das opcoes abaixo:");
+    linha();
+    puts("1 - Forca Bruta\n2 - Shift-And Exato\n3 - Shift-And Aproximado\n0 - Finalizar o Programa\n");
+    linha();
+    printf("Sua escolha: ");
+    scanf("%d", &escolha);
+
+    return escolha;
+}
