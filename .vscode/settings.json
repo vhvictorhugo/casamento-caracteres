@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "algoritmos.h": "c",
+        "auxiliares.h": "c"
+    }
+}
