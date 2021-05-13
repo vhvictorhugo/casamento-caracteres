@@ -2,6 +2,7 @@
     "files.associations": {
         "algoritmos.h": "c",
         "auxiliares.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "time.h": "c"
     }
 }

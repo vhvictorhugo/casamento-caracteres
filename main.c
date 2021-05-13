@@ -89,8 +89,8 @@ int main(int argc, char **argv)
             system("pause");
             break;
         }
-        system("clear");
-        //limpaTela();
+        system("cls");
+ 
     } while (escolhaMenu != 0);
 
  

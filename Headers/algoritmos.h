@@ -4,19 +4,7 @@
 *   Matéria: Projeto e Análise de Algoritmos
 *   Professor: Daniel Mendes Barbosa
 */
-
-/*
-#ifdef __unix__
-#include <unistd.h>
-
-#elif defined(_WIN32) || defined(WIN32)
-
-#define OS_Windows
-
-#include <windows.h>
-
-#endif
-*/
+ 
  
 #include <stdio.h>
 #include <string.h>
