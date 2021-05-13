@@ -15,7 +15,7 @@
 #define MAXTAMPADRAO 30
 #define MAXCHAR 256
 #define NUMMAXERROS 10
-//#define MODO_DEBUG 1 // 0 = desativado, 1 = ativado
+#define MODO_DEBUG 1 // 0 = desativado, 1 = ativado
 
 typedef char TipoTexto[MAXTAMTEXTO];
 typedef char TipoPadrao[MAXTAMPADRAO];

@@ -25,12 +25,14 @@ void ShiftAndExato(TipoTexto T, long n, TipoPadrao P, long m)
              (1 << (m - 1))) &
             Masc[T[i] + 127];
         if ((R & 1) != 0)
+        {
             //printf("Casamento na posicao %3ld\n", i - m + 2); // remover
             contCasamento++;
+        }
     }
 
-    //if (!MODO_DEBUG)
-    printf("Quantidade de casamentos: %d\n", contCasamento);
+    if (!MODO_DEBUG)
+        printf("Quantidade de casamentos: %d\n", contCasamento);
 }
 
 void ForcaBruta(TipoTexto T, long n, TipoPadrao P, long m)
@@ -51,13 +53,13 @@ void ForcaBruta(TipoTexto T, long n, TipoPadrao P, long m)
 
         if (j > m)
         {
-            printf("Casamento na posicao: %3ld\n", i); //remover
+            //printf("Casamento na posicao: %3ld\n", i); //remover
             contCasamento++;
         }
     }
 
-    //if (!MODO_DEBUG)
-    printf("Quantidade de casamentos: %d\n", contCasamento);
+    if (!MODO_DEBUG)
+        printf("Quantidade de casamentos: %d\n", contCasamento);
 }
 
 void ShiftAndAproximado(TipoTexto T, long n, TipoPadrao P, long m, long k)
