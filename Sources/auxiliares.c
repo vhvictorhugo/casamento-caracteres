@@ -58,6 +58,7 @@ int menu()
 {
     int escolha;
 
+    linha();
     puts("Escolha uma das opcoes abaixo:");
     linha();
     puts("1 - Forca Bruta\n2 - Shift-And Exato\n3 - Shift-And Aproximado\n0 - Finalizar o Programa\n");

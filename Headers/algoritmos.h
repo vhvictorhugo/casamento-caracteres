@@ -14,6 +14,7 @@
 #define MAXTAMTEXTO 999999
 #define MAXTAMPADRAO 30
 #define MAXCHAR 256
+#define NUMMAXERROS 10
 //#define MODO_DEBUG 1 // 0 = desativado, 1 = ativado
 
 typedef char TipoTexto[MAXTAMTEXTO];
@@ -21,3 +22,4 @@ typedef char TipoPadrao[MAXTAMPADRAO];
 
 void ShiftAndExato(TipoTexto T, long n, TipoPadrao P, long m);
 void ForcaBruta(TipoTexto T, long n, TipoPadrao P, long m);
+void ShiftAndAproximado(TipoTexto T, long n, TipoPadrao P, long m, long k);

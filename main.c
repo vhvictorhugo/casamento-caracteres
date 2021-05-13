@@ -15,7 +15,7 @@ int main(int argc, char **argv)
     TipoTexto texto;
     TipoPadrao padrao;
 
-    int escolhaMenu;
+    int escolhaMenu, k;
 
     leituraArquivo(texto);
     printf("Digite o nome do padrao: ");
@@ -42,7 +42,10 @@ int main(int argc, char **argv)
             break;
 
         case 3:
-            puts("ainda n foi feito");
+            puts("Execucao Shift-And Aproximado:");
+            printf("Digite a Distancia de Edicao (valor de k): ");
+            scanf("%d", &k);
+            ShiftAndAproximado(texto, strlen(texto), padrao, strlen(padrao), k);
             system("pause");
             break;
 
@@ -56,6 +59,8 @@ int main(int argc, char **argv)
             system("pause");
             break;
         }
+
+        system("clear");
 
     } while (escolhaMenu != 0);
 
