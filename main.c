@@ -15,7 +15,7 @@ int main(int argc, char **argv)
     TipoTexto texto;
     TipoPadrao padrao;
 
-    int escolhaMenu, k;
+    int escolhaMenu, k,permissao;
 
     clock_t tempo;
 
@@ -32,7 +32,7 @@ int main(int argc, char **argv)
 
         case 1:
 
-            puts("Execucao Forca Bruta:");
+            puts("\nExecucao Forca Bruta:");
 
             tempo = clock();
             ForcaBruta(texto, strlen(texto), padrao, strlen(padrao));
@@ -47,7 +47,7 @@ int main(int argc, char **argv)
 
         case 2:
 
-            puts("Execucao Shift-And Exato:");
+            puts("\nExecucao Shift-And Exato:");
 
             tempo = clock();
             ShiftAndExato(texto, strlen(texto), padrao, strlen(padrao));
@@ -62,12 +62,14 @@ int main(int argc, char **argv)
 
         case 3:
 
-            puts("Execucao Shift-And Aproximado:");
+            puts("\nExecucao Shift-And Aproximado:");
             printf("Digite a Distancia de Edicao (valor de k): ");
             scanf("%d", &k);
-
+            printf("Digite a operacao a ser permitida 1(insercao) 2(substituicao) 3(retirada) 4(todas): ");
+            scanf("%d", &permissao);
             tempo = clock();
-            ShiftAndAproximado(texto, strlen(texto), padrao, strlen(padrao), k);
+            //ShiftAndAproximado(texto, strlen(texto), padrao, strlen(padrao), k);
+            ShiftAndAproximadoAlterado(texto,strlen(texto),padrao,strlen(padrao),k,permissao);
 
             tempo = clock() - tempo;
 
@@ -78,18 +80,25 @@ int main(int argc, char **argv)
             break;
 
         case 0:
-            puts("Obrigado por utilizar!");
+            puts("\nObrigado por utilizar!");
             system("pause");
             break;
 
         default:
-            puts("Valor invalido! Poderia inserir outro?!");
+            puts("\nValor invalido! Poderia inserir outro?!");
             system("pause");
             break;
         }
-
         system("clear");
+        //limpaTela();
     } while (escolhaMenu != 0);
+
+ 
+    
+    
+ 
+    
+
 
     return 0;
 }

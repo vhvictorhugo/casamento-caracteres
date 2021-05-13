@@ -10,3 +10,4 @@
 void leituraArquivo(TipoTexto texto);
 void linha();
 int menu();
+void limpaTela();

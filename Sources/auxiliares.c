@@ -68,3 +68,12 @@ int menu()
 
     return escolha;
 }
+
+void limpaTela()
+{
+#ifdef OS_Windows
+    system("cls");
+#else
+    system("clear");
+#endif
+}

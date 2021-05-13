@@ -5,6 +5,19 @@
 *   Professor: Daniel Mendes Barbosa
 */
 
+/*
+#ifdef __unix__
+#include <unistd.h>
+
+#elif defined(_WIN32) || defined(WIN32)
+
+#define OS_Windows
+
+#include <windows.h>
+
+#endif
+*/
+ 
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -23,3 +36,4 @@ typedef char TipoPadrao[MAXTAMPADRAO];
 void ShiftAndExato(TipoTexto T, long n, TipoPadrao P, long m);
 void ForcaBruta(TipoTexto T, long n, TipoPadrao P, long m);
 void ShiftAndAproximado(TipoTexto T, long n, TipoPadrao P, long m, long k);
+void ShiftAndAproximadoAlterado(TipoTexto T, long n, TipoPadrao P, long m, long k, int permissao);
