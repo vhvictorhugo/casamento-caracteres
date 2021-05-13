@@ -68,8 +68,7 @@ int main(int argc, char **argv)
             printf("Digite a operacao a ser permitida 1(insercao) 2(substituicao) 3(retirada) 4(todas): ");
             scanf("%d", &permissao);
             tempo = clock();
-            //ShiftAndAproximado(texto, strlen(texto), padrao, strlen(padrao), k);
-            ShiftAndAproximadoAlterado(texto,strlen(texto),padrao,strlen(padrao),k,permissao);
+            ShiftAndAproximado(texto,strlen(texto),padrao,strlen(padrao),k,permissao);
 
             tempo = clock() - tempo;
 
