@@ -3,6 +3,11 @@
 *   Autor: Roniel Nunes Barbosa e Victor Hugo Santos
 *   Matéria: Projeto e Análise de Algoritmos
 *   Professor: Daniel Mendes Barbosa
+
+Referências dos algoritmos de casamento de cadeias:
+
+AUTOR: Professor Nivio Ziviani do DCC da UFMG
+LINK: http://www2.dcc.ufmg.br/livros/algoritmos/cap8/codigo/c/8.1a8.6e8.8-pesquisacadeia.c
 */
 
 #include "./Headers/auxiliares.h"
@@ -15,7 +20,7 @@ int main(int argc, char **argv)
     TipoTexto texto;
     TipoPadrao padrao;
 
-    int escolhaMenu, k,permissao;
+    int escolhaMenu, k, permissao;
 
     clock_t tempo;
 
@@ -68,7 +73,7 @@ int main(int argc, char **argv)
             printf("Digite a operacao a ser permitida 1(insercao) 2(substituicao) 3(retirada) 4(todas): ");
             scanf("%d", &permissao);
             tempo = clock();
-            ShiftAndAproximado(texto,strlen(texto),padrao,strlen(padrao),k,permissao);
+            ShiftAndAproximado(texto, strlen(texto), padrao, strlen(padrao), k, permissao);
 
             tempo = clock() - tempo;
 
@@ -89,15 +94,8 @@ int main(int argc, char **argv)
             break;
         }
         system("cls");
- 
+
     } while (escolhaMenu != 0);
-
- 
-    
-    
- 
-    
-
 
     return 0;
 }

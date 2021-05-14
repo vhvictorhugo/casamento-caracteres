@@ -3,6 +3,11 @@
 *   Autor: Roniel Nunes Barbosa e Victor Hugo Santos
 *   Matéria: Projeto e Análise de Algoritmos
 *   Professor: Daniel Mendes Barbosa
+
+Referências dos algoritmos de casamento de cadeias:
+
+AUTOR: Professor Nivio Ziviani do DCC da UFMG
+LINK: http://www2.dcc.ufmg.br/livros/algoritmos/cap8/codigo/c/8.1a8.6e8.8-pesquisacadeia.c
 */
 
 #include "../Headers/algoritmos.h"
@@ -66,7 +71,8 @@ void ShiftAndAproximado(TipoTexto T, long n, TipoPadrao P, long m, long k, int p
 {
     long Masc[MAXCHAR], i, j, Ri, Rant, Rnovo;
     long R[NUMMAXERROS + 1];
-    if(permissao > 0 && permissao <5){
+    if (permissao > 0 && permissao < 5)
+    {
         for (i = 0; i < MAXCHAR; i++)
             Masc[i] = 0;
 
@@ -89,13 +95,20 @@ void ShiftAndAproximado(TipoTexto T, long n, TipoPadrao P, long m, long k, int p
 
             for (j = 1; j <= k; j++)
             {
-                if(permissao == 1){
+                if (permissao == 1)
+                {
                     Rnovo = ((((unsigned long)R[j]) >> 1) & Masc[T[i] + 127]) | Rant; //Somente inserção
-                }else if(permissao == 2){
+                }
+                else if (permissao == 2)
+                {
                     Rnovo = ((((unsigned long)R[j]) >> 1) & Masc[T[i] + 127]) | (((unsigned long)Rant) >> 1); //Somente substituição
-                }else if(permissao == 3){
-                    Rnovo = ((((unsigned long)R[j]) >> 1) & Masc[T[i] + 127]) |  (((unsigned long)Rnovo) >> 1);  //Somente retirada
-                }else if(permissao == 4){
+                }
+                else if (permissao == 3)
+                {
+                    Rnovo = ((((unsigned long)R[j]) >> 1) & Masc[T[i] + 127]) | (((unsigned long)Rnovo) >> 1); //Somente retirada
+                }
+                else if (permissao == 4)
+                {
                     Rnovo = ((((unsigned long)R[j]) >> 1) & Masc[T[i] + 127]) | Rant | (((unsigned long)(Rant | Rnovo)) >> 1); //Todas as operações permitidas
                 }
 
@@ -106,8 +119,9 @@ void ShiftAndAproximado(TipoTexto T, long n, TipoPadrao P, long m, long k, int p
             if ((Rnovo & 1) != 0)
                 printf("Casamento aproximado na posicao %12ld\n", i + 1);
         }
-    }else{
+    }
+    else
+    {
         printf("Operacao nao eh permitida.\n");
     }
-    
 }
