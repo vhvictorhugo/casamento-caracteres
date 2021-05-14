@@ -91,7 +91,6 @@ int main(int argc, char **argv)
 
         case 0:
             puts("\nObrigado por utilizar!");
-            system("pause");
             break;
 
         default:
