@@ -27,4 +27,4 @@ typedef char TipoPadrao[MAXTAMPADRAO];
 
 void ShiftAndExato(TipoTexto T, long n, TipoPadrao P, long m);
 void ForcaBruta(TipoTexto T, long n, TipoPadrao P, long m);
-void ShiftAndAproximado(TipoTexto T, long n, TipoPadrao P, long m, long k, int permissao);
+void ShiftAndAproximado(TipoTexto T, long n, TipoPadrao P, long m, long k, int permissaoInsercao, int permissaoRemocao, int permissaoSubstituicao);

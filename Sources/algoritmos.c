@@ -67,61 +67,51 @@ void ForcaBruta(TipoTexto T, long n, TipoPadrao P, long m)
         printf("Quantidade de casamentos: %d\n", contCasamento);
 }
 
-void ShiftAndAproximado(TipoTexto T, long n, TipoPadrao P, long m, long k, int permissao)
+void ShiftAndAproximado(TipoTexto T, long n, TipoPadrao P, long m, long k, int permissaoInsercao, int permissaoRemocao, int permissaoSubstituicao)
 {
     long Masc[MAXCHAR], i, j, Ri, Rant, Rnovo;
     long R[NUMMAXERROS + 1];
-    if (permissao > 0 && permissao < 5)
+
+    for (i = 0; i < MAXCHAR; i++)
+        Masc[i] = 0;
+
+    for (i = 1; i <= m; i++)
     {
-        for (i = 0; i < MAXCHAR; i++)
-            Masc[i] = 0;
+        Masc[P[i - 1] + 127] |= 1 << (m - i);
+    }
 
-        for (i = 1; i <= m; i++)
-        {
-            Masc[P[i - 1] + 127] |= 1 << (m - i);
-        }
+    R[0] = 0;
+    Ri = 1 << (m - 1);
 
-        R[0] = 0;
-        Ri = 1 << (m - 1);
+    for (j = 1; j <= k; j++)
+        R[j] = (1 << (m - j)) | R[j - 1];
+
+    for (i = 0; i < n; i++)
+    {
+        Rant = R[0];
+        Rnovo = ((((unsigned long)Rant) >> 1) | Ri) & Masc[T[i] + 127];
+        R[0] = Rnovo;
 
         for (j = 1; j <= k; j++)
-            R[j] = (1 << (m - j)) | R[j - 1];
-
-        for (i = 0; i < n; i++)
         {
-            Rant = R[0];
-            Rnovo = ((((unsigned long)Rant) >> 1) | Ri) & Masc[T[i] + 127];
-            R[0] = Rnovo;
-
-            for (j = 1; j <= k; j++)
+            if (permissaoInsercao)
             {
-                if (permissao == 1)
-                {
-                    Rnovo = ((((unsigned long)R[j]) >> 1) & Masc[T[i] + 127]) | Rant; //Somente inserção
-                }
-                else if (permissao == 2)
-                {
-                    Rnovo = ((((unsigned long)R[j]) >> 1) & Masc[T[i] + 127]) | (((unsigned long)Rant) >> 1); //Somente substituição
-                }
-                else if (permissao == 3)
-                {
-                    Rnovo = ((((unsigned long)R[j]) >> 1) & Masc[T[i] + 127]) | (((unsigned long)Rnovo) >> 1); //Somente retirada
-                }
-                else if (permissao == 4)
-                {
-                    Rnovo = ((((unsigned long)R[j]) >> 1) & Masc[T[i] + 127]) | Rant | (((unsigned long)(Rant | Rnovo)) >> 1); //Todas as operações permitidas
-                }
-
-                Rant = R[j]; //
-                R[j] = Rnovo | Ri;
+                Rnovo = ((((unsigned long)R[j]) >> 1) & Masc[T[i] + 127]) | Rant; //Somente inserção
+            }
+            else if (permissaoSubstituicao)
+            {
+                Rnovo = ((((unsigned long)R[j]) >> 1) & Masc[T[i] + 127]) | (((unsigned long)Rant) >> 1); //Somente substituição
+            }
+            else if (permissaoRemocao)
+            {
+                Rnovo = ((((unsigned long)R[j]) >> 1) & Masc[T[i] + 127]) | (((unsigned long)Rnovo) >> 1); //Somente retirada
             }
 
-            if ((Rnovo & 1) != 0)
-                printf("Casamento aproximado na posicao %12ld\n", i + 1);
+            Rant = R[j];
+            R[j] = Rnovo | Ri;
         }
-    }
-    else
-    {
-        printf("Operacao nao eh permitida.\n");
+
+        if ((Rnovo & 1) != 0)
+            printf("Casamento aproximado na posicao %12ld\n", i + 1);
     }
 }

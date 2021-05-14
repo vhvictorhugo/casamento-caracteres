@@ -20,9 +20,9 @@ int main(int argc, char **argv)
     TipoTexto texto;
     TipoPadrao padrao;
 
-    int escolhaMenu, k, permissao;
+    int escolhaMenu, k, permissaoInsercao, permissaoRemocao, permissaoSubstituicao;
 
-    clock_t tempo;
+    clock_t tempo; // variavel que armazenará o tempo de execução
 
     leituraArquivo(texto);
     printf("Digite o nome do padrao: ");
@@ -30,11 +30,9 @@ int main(int argc, char **argv)
 
     do
     {
-
         escolhaMenu = menu();
         switch (escolhaMenu)
         {
-
         case 1:
 
             puts("\nExecucao Forca Bruta:");
@@ -70,10 +68,18 @@ int main(int argc, char **argv)
             puts("\nExecucao Shift-And Aproximado:");
             printf("Digite a Distancia de Edicao (valor de k): ");
             scanf("%d", &k);
-            printf("Digite a operacao a ser permitida 1(insercao) 2(substituicao) 3(retirada) 4(todas): ");
-            scanf("%d", &permissao);
+
+            printf("Deseja permitir a operacao de insercao (1 = sim, 0 = nao): ");
+            scanf("%d", &permissaoInsercao);
+
+            printf("Deseja permitir a operacao de remocao (1 = sim, 0 = nao): ");
+            scanf("%d", &permissaoRemocao);
+
+            printf("Deseja permitir a operacao de substituicao (1 = sim, 0 = nao): ");
+            scanf("%d", &permissaoSubstituicao);
+
             tempo = clock();
-            ShiftAndAproximado(texto, strlen(texto), padrao, strlen(padrao), k, permissao);
+            ShiftAndAproximado(texto, strlen(texto), padrao, strlen(padrao), k, permissaoInsercao, permissaoRemocao, permissaoSubstituicao);
 
             tempo = clock() - tempo;
 
@@ -94,8 +100,6 @@ int main(int argc, char **argv)
             break;
         }
         system("cls");
-
     } while (escolhaMenu != 0);
-
     return 0;
 }
