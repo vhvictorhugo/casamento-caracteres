@@ -116,4 +116,6 @@ void ShiftAndAproximado(TipoTexto T, long n, TipoPadrao P, long m, long k, int p
         if ((Rnovo & 1) != 0)
             printf("Casamento aproximado na posicao %12ld\n", i + 1);
     }
+    if (!MODO_DEBUG)
+        printf("Quantidade de casamentos: %d\n", contCasamento);
 }
